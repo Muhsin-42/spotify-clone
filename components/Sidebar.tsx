@@ -36,15 +36,13 @@ const SideBar: React.FC<SidebarProps> = ({children}) => {
                 hidden
                 md:flex
                 flex-col
-                gap-y-2
+                gap-y-2 p-2
                 bg-black
-                h-full
-                w-[300px]
-                p-2
+                h-full w-[300px]
             ">
                 <Box>
                     <div className="flex flex-col gap-y-4 px-5 py-4">
-                        { routes. map((item)=>(
+                        { routes?.map((item)=>(
                             <SidebarItem
                                 key={item.label}
                                 {...item}

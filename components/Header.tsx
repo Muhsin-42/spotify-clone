@@ -2,7 +2,10 @@
 import { useRouter } from 'next/navigation';
 import React,{FC} from 'react'
 import { twMerge } from 'tailwind-merge'
+import {HiHome} from 'react-icons/hi'
 import { RxCaretLeft, RxCaretRight } from 'react-icons/rx'
+import { BiSearch } from 'react-icons/bi'
+import Button from './Button';
 interface HeaderProps {
     children: React.ReactNode;
     className?: string;
@@ -29,7 +32,7 @@ const Header:FC<HeaderProps> = ({children,className}) => {
                     gap-x-2  
                     items-center">
                         <button type='button'
-                            onClick={handleClick}
+                            onClick={()=>router.back()}
                             className='rounded-full
                              bg-black 
                              flex 
@@ -40,8 +43,8 @@ const Header:FC<HeaderProps> = ({children,className}) => {
                         <RxCaretLeft size={35} className="text-white" />
                         </button>
                         <button type='button'
-                            onClick={handleClick}
-                            className='rounded-full
+                            onClick={()=>router.forward()}
+                            className='rounded-full 
                              bg-black 
                              flex 
                              items-center 
@@ -51,7 +54,60 @@ const Header:FC<HeaderProps> = ({children,className}) => {
                         <RxCaretRight size={35} className="text-white" />
                         </button>
                 </div>
+
+            {/* Mobile View Home & Search Btn Start */}
+                <div className='flex md:hidden gap-x-2 items-center'>
+                    <button 
+                        type='button'
+                        onClick={()=>router.push('/')}
+                        className="
+                        rounded-full
+                        p-2
+                        bg-white
+                        flex
+                        items-center
+                        justify-center
+                        hover:opacity-75
+                        transition"  >
+                        <HiHome className="text-black" size={20} />
+                    </button>
+                    <button type='button' className="
+                        rounded-full
+                        p-2
+                        bg-white
+                        flex
+                        items-center
+                        justify-center
+                        hover:opacity-75
+                        transition" >
+                        <BiSearch className="text-black" size={20} />
+                    </button>
+                </div>
+            {/* Mobile View Home & Search Btn End */}
+
+            <div 
+                className='flex justify-between items-center gap-x-4'
+            >
+                <>
+                    <div>
+                        <Button className='
+                        bg-transparent text-neutral-300 font-medium
+                        '>
+                            Sign up
+                        </Button>
+                    </div>
+                    <div>
+                        <Button 
+                            onClick={()=> { }}
+                            className='bg-white px-6 py-2'
+                            >
+                            Login
+                        </Button>
+                    </div>
+                </>
             </div>
+            </div>
+            {children}
         </div>
     )
 }
