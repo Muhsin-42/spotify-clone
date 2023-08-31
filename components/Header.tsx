@@ -57,7 +57,10 @@ const Header:FC<HeaderProps> = ({children,className}) => {
 
             {/* Mobile View Home & Search Btn Start */}
                 <div className='flex md:hidden gap-x-2 items-center'>
-                    <button className="
+                    <button 
+                        type='button'
+                        onClick={()=>router.push('/')}
+                        className="
                         rounded-full
                         p-2
                         bg-white
@@ -65,10 +68,10 @@ const Header:FC<HeaderProps> = ({children,className}) => {
                         items-center
                         justify-center
                         hover:opacity-75
-                        transition" >
+                        transition"  >
                         <HiHome className="text-black" size={20} />
                     </button>
-                    <button className="
+                    <button type='button' className="
                         rounded-full
                         p-2
                         bg-white
